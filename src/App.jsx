@@ -45,7 +45,7 @@ function App() {
                price= {20}
          /> */}
          {/* <LocalStorage /> */}
-         {/* <Game /> */}
+         <Game />
          {/* <SimpleTable /> */}
          {/* <RandomNumberGame /> */}
    </div>

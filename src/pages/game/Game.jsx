@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Board from './Board';
+import React, { useState } from "react";
+import Board from "./Board";
 const calculateWinner = (squares) => {
   const lines = [
     [0, 1, 2],
@@ -29,13 +29,14 @@ const Game = () => {
 
   const handleClick = (i) => {
     const currentHistory = history.slice(0, stepNumber + 1);
-    const currentSquares = currentHistory[currentHistory.length - 1].squares.slice();
+    const currentSquares =
+      currentHistory[currentHistory.length - 1].squares.slice();
 
     if (calculateWinner(currentSquares) || currentSquares[i]) {
       return;
     }
 
-    currentSquares[i] = xIsNext ? 'X' : 'O';
+    currentSquares[i] = xIsNext ? "X" : "O";
 
     setHistory(currentHistory.concat([{ squares: currentSquares }]));
     setStepNumber(currentHistory.length);
@@ -49,10 +50,12 @@ const Game = () => {
 
   const currentSquares = history[stepNumber].squares;
   const winner = calculateWinner(currentSquares);
-  const status = winner ? `Winner: ${winner}` : `Next player: ${xIsNext ? 'X' : 'O'}`;
+  const status = winner
+    ? `Winner: ${winner}`
+    : `Next player: ${xIsNext ? "X" : "O"}`;
 
   const moves = history.map((step, move) => {
-    const desc = move ? `Go to move #${move}` : 'Go to game start';
+    const desc = move ? `Go to move #${move}` : "Go to game start";
     return (
       <li key={move}>
         <button onClick={() => jumpTo(move)}>{desc}</button>
